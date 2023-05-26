@@ -1,4 +1,4 @@
-const Users = require("../model/userModel");
+const {Users} = require("../model/userModel");
 
 const allUsers = async (req, res) => {
   try {
@@ -20,7 +20,9 @@ const allUsers = async (req, res) => {
 
 const singleUser = async (req, res) => {
   try {
-    const data = await Users.findById(req.user.userId);
+    // console.log(req.user)
+    const data = await Users.findOne({id : req.user.userId});
+    // console.log('data: ' + data)
     return res.json({
       status: true,
       message: "user details available here",
