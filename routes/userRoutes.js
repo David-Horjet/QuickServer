@@ -8,7 +8,7 @@ const {loginRequired} = require('../middlewares/auth')
 const userRouter = express.Router()
 
 userRouter.get('/all',controller.allUsers);
-userRouter.get('/', loginRequired, controller.singleUser);
+userRouter.get('/profile', loginRequired, controller.singleUser);
 
 module.exports = {
     userRouter

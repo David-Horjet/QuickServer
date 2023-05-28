@@ -20,8 +20,8 @@ const allUsers = async (req, res) => {
 
 const singleUser = async (req, res) => {
   try {
-    // console.log(req.user)
-    const data = await Users.findOne({id : req.user.userId});
+    console.log(req.user)
+    const data = await Users.findById(req.user.userId);
     // console.log('data: ' + data)
     return res.json({
       status: true,
